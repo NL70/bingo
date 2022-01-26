@@ -4,14 +4,28 @@ const numberGeneratorButton = document.getElementById(
 );
 const gridContainer = document.getElementById("grid-container");
 const resetButton = document.getElementById("reset-button");
+let possibleNumbers = [];
+
+function generatePossibleNumbers() {
+  for (let i = 1; i < 51; i++) {
+    possibleNumbers.push(i);
+  }
+}
 
 numberGeneratorButton.addEventListener("click", () => {
-  const randomNumber = Math.floor(Math.random() * 51);
-  numberDisplay.innerText = randomNumber;
-  const highlightedNumber = document.getElementById(randomNumber);
-  highlightedNumber.classList.add("highlighted");
+  const randomIndex = Math.floor(Math.random() * possibleNumbers.length);
+  const randomNumber = possibleNumbers[randomIndex];
+  if (!randomNumber) {
+    numberDisplay.innerText = "All positions filled.";
+  } else {
+    numberDisplay.innerText = randomNumber;
+    const highlightedNumber = document.getElementById(randomNumber);
+    highlightedNumber.classList.add("highlighted");
+    possibleNumbers.splice(randomIndex, 1);
+  }
 });
 
+generatePossibleNumbers();
 function generateTable() {
   for (let i = 1; i < 51; i++) {
     const number = document.createElement("p");
@@ -23,6 +37,7 @@ function generateTable() {
 }
 
 resetButton.addEventListener("click", () => {
+  generatePossibleNumbers();
   for (let i = 1; i < 51; i++) {
     const unhighlightedNumber = document.getElementById(i);
     unhighlightedNumber.classList.remove("highlighted");
