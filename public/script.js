@@ -5,10 +5,26 @@ const numberGeneratorButton = document.getElementById(
 const gridContainer = document.getElementById("grid-container");
 const resetButton = document.getElementById("reset-button");
 let possibleNumbers = [];
+const numberCount = 76;
 
 function generatePossibleNumbers() {
-  for (let i = 1; i < 51; i++) {
+  for (let i = 1; i < numberCount; i++) {
     possibleNumbers.push(i);
+  }
+}
+
+function toggleTheme() {
+  // Obtains an array of all <link>
+  // elements.
+  // Select your element using indexing.
+  let theme = document.getElementsByTagName("link")[0];
+
+  // Change the value of href attribute
+  // to change the css sheet.
+  if (theme.getAttribute("href") == "lightmode.css") {
+    theme.setAttribute("href", "darkmode.css");
+  } else {
+    theme.setAttribute("href", "lightmode.css");
   }
 }
 
@@ -27,7 +43,7 @@ numberGeneratorButton.addEventListener("click", () => {
 
 generatePossibleNumbers();
 function generateTable() {
-  for (let i = 1; i < 51; i++) {
+  for (let i = 1; i < numberCount; i++) {
     const number = document.createElement("p");
     number.classList.add("grid-items");
     number.setAttribute("id", i);
@@ -38,7 +54,7 @@ function generateTable() {
 
 resetButton.addEventListener("click", () => {
   generatePossibleNumbers();
-  for (let i = 1; i < 51; i++) {
+  for (let i = 1; i < numberCount; i++) {
     const unhighlightedNumber = document.getElementById(i);
     unhighlightedNumber.classList.remove("highlighted");
     numberDisplay.innerText = "-";
