@@ -57,8 +57,8 @@ h1 {
 }
 
 .highlighted {
-  background-color: #a0a0a0;
-  color: white;
+  background-color: #ffe600;
+  color: black;
 }
 
 body {
@@ -107,4 +107,12 @@ footer {
   right: 0px;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+footer p {
+  display: inline;
+}
+
+a {
+  display: inline;
 }

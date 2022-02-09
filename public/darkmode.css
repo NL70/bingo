@@ -108,3 +108,11 @@ footer {
   margin-top: 10px;
   margin-right: 10px;
 }
+
+footer p {
+  display: inline;
+}
+
+a {
+  display: inline;
+}
