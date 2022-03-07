@@ -4,14 +4,28 @@ header {
   text-align: center;
 }
 
+:root {
+  --text-colour: hsl(49, 100%, 50%);
+  --primary-colour: hsl(0, 0%, 30%);
+  --secondary-colour: hsl(0, 0%, 19%);
+  --highlight: hsl(49, 100%, 50%);
+}
+
+:root.light-mode {
+  --text-colour: hsl(0, 0%, 100%);
+  --primary-colour: hsl(0, 0%, 56%);
+  --secondary-colour: hsl(0, 0%, 17%);
+  --highlight: hsl(0, 0%, 100%);
+}
+
 h1 {
   font-family: "Roboto Mono", monospace;
-  color: rgb(255, 208, 0);
+  color: var(--text-colour);
 }
 
 #number-generator-button {
-  background-color: rgb(255, 208, 0);
-  color: rgb(77, 77, 77);
+  background-color: var(--highlight);
+  color: var(--primary-colour);
   border: none;
   width: 350px;
   height: 50px;
@@ -22,17 +36,17 @@ h1 {
 }
 
 #number-generator-button:hover {
-  background-color: rgb(49, 49, 49);
-  color: rgb(255, 208, 0);
+  background-color: var(--secondary-colour);
+  color: var(--text-colour);
 }
 
 #number-generator-button:active {
-  color: rgb(77, 77, 77);
+  color: var(--primary-colour);
 }
 
 #number-display {
   font-family: "Roboto Mono", monospace;
-  color: rgb(255, 208, 0);
+  color: var(--text-colour);
   font-family: "Roboto Mono", monospace;
   font-size: 60px;
   margin: 0 0 35px 0;
@@ -48,8 +62,8 @@ h1 {
 .grid-items {
   text-align: center;
   display: inline;
-  background-color: rgb(49, 49, 49);
-  color: rgb(255, 208, 0);
+  background-color: var(--secondary-colour);
+  color: var(--text-colour);
   padding: 7px 18px 7px 18px;
   font-size: 27px;
   font-family: "Roboto Mono", monospace;
@@ -59,12 +73,12 @@ h1 {
 }
 
 .highlighted {
-  background-color: rgb(255, 208, 0);
-  color: rgb(77, 77, 77);
+  background-color: var(--highlight);
+  color: var(--primary-colour);
 }
 
 body {
-  background-color: rgb(77, 77, 77);
+  background-color: var(--primary-colour);
   transition: all 0.2s ease;
   margin: 0;
   text-align: center;
@@ -72,8 +86,8 @@ body {
 
 #reset-button {
   margin-top: 40px;
-  background-color: rgb(49, 49, 49);
-  color: rgb(255, 208, 0);
+  background-color: var(--secondary-colour);
+  color: var(--text-colour);
   border: none;
   width: 200px;
   height: 40px;
@@ -84,8 +98,8 @@ body {
 }
 
 #reset-button:active {
-  background-color: rgb(255, 208, 0);
-  color: rgb(77, 77, 77);
+  background-color: var(--highlight);
+  color: var(--primary-colour);
 }
 
 footer {
@@ -96,14 +110,14 @@ footer {
   bottom: 0;
   left: 0;
   height: 20px;
-  color: rgb(77, 77, 77);
-  background-color: rgb(77, 77, 77);
+  color: var(--primary-colour);
+  background-color: var(--primary-colour);
   transition: all 0.2s ease;
 }
 
 footer:hover {
-  color: rgb(255, 208, 0);
-  background-color: rgb(49, 49, 49);
+  color: var(--highlight);
+  background-color: var(--secondary-colour);
 }
 
 footer p {
@@ -120,8 +134,8 @@ body {
 
 #toggle-themes-button {
   position: absolute;
-  background-color: rgb(255, 208, 0);
-  color: rgb(77, 77, 77);
+  background-color: var(--highlight);
+  color: var(--primary-colour);
   transition: all 0.2s ease;
   border: none;
   width: 175px;

@@ -6,6 +6,7 @@ const gridContainer = document.getElementById("grid-container");
 const resetButton = document.getElementById("reset-button");
 let possibleNumbers = [];
 const numberCount = 76;
+const toggleThemesButton = document.getElementById("toggle-themes-button");
 
 function generatePossibleNumbers() {
   for (let i = 1; i < numberCount; i++) {
@@ -13,14 +14,9 @@ function generatePossibleNumbers() {
   }
 }
 
-function toggleTheme() {
-  let theme = document.getElementsByTagName("link")[0];
-  if (theme.getAttribute("href") == "lightmode.css") {
-    theme.setAttribute("href", "darkmode.css");
-  } else {
-    theme.setAttribute("href", "lightmode.css");
-  }
-}
+toggleThemesButton.addEventListener("click", () => {
+  document.querySelector(":root").classList.toggle("light-mode");
+});
 
 numberGeneratorButton.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * possibleNumbers.length);
